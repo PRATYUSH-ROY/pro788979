@@ -1,0 +1,42 @@
+<html lang="en">
+
+
+<body style="text-align:center; background-image: url(./bg1.jpg);">
+
+    <canvas id="can" width="800" height="600">NOT SUPPORTED</canvas>
+
+    <script>
+        var fffff = false;
+        var prex, prey, ny, nx;
+        console.log("ready")
+        var canvas = document.getElementById("can");
+        var st = canvas.getContext("2d");
+        canvas.addEventListener("mousedown", function() {
+            console.log(event);
+            fffff = true;
+        });
+        canvas.addEventListener("mouseup", function() {
+            fffff = false;
+        });
+        canvas.addEventListener("mousemove", function() {
+            if (fffff) {
+
+                x = event.clientX - canvas.offsetLeft;
+                y = event.clientY - canvas.offsetTop;
+                console.log(x, y);
+                console.log(event);
+                st.beginPath();
+                st.strokeStyle = "RED";
+                st.lineWidth = 2;
+                st.beginPath()
+                st.arc(x, y, 50, 0, 2 * Math.PI);
+                st.stroke();
+            }
+            prey = y;
+            prex = x;
+
+        });
+    </script>
+</body>
+
+</html>
